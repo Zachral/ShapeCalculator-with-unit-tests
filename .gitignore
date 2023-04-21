@@ -5,7 +5,6 @@ main.o
 safeinput.o
 calculator.o
 shapeFunctions.o
-RPSgame.c
 inlamningCI
 RPSgame.o
 inlamningCI-debug.exe
