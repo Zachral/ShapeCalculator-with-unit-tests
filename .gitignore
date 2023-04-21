@@ -1,0 +1,13 @@
+calculateFunctions.o
+Main.o
+empty_stdin.o
+main.o
+safeinput.o
+calculator.o
+shapeFunctions.o
+RPSgame.c
+inlamningCI
+RPSgame.o
+inlamningCI-debug.exe
+Makefile old
+.vscode/settings.json
