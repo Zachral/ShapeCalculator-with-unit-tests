@@ -2,8 +2,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include "calculator.h"
-#include "safeinput.h"
-#include "empty_stdin.h"
+#include "supportFunctions.h"
 
 void calculateAndPrint(float operand1, float operand2, char operator){
     float result; 

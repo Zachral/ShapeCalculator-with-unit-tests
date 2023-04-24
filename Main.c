@@ -2,8 +2,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "calculator.h"
-#include "calculateFunctions.h"
+#include "shapes.h"
 #include "supportFunctions.h"
+#include "RPSgame.h"
 
 int main(){
     while(true){
@@ -24,8 +25,8 @@ int main(){
             return false;
             break; 
         default:
-            printf("Invalid input\nPress enter to continue");
-            empty_stdin(); 
+            printf("Invalid input");
+            empty_stdin();
             break;
         }
     }

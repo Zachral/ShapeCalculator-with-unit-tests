@@ -10,3 +10,5 @@ RPSgame.o
 inlamningCI-debug.exe
 Makefile old
 .vscode/settings.json
+TestShapes.o
+unitTests.exe

@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-#include "calculateFunctions.h"
+#include "shapes.h"
 #include "supportFunctions.h"
 #define RECTANGEL 1
 #define PARALLELOGRAM 2
@@ -75,7 +75,7 @@ void shapeInput(int shape){
     if(shape == RECTANGEL || shape == PARALLELOGRAM){
         while(true){
             printf("Input the mesurements in cm of base and height:\n"); 
-            if((scanf("%.2f", &base)) && (scanf("%.2f", &height)) && base > 0 && height > 0 ){
+            if((scanf("%f", &base)) && (scanf("%f", &height)) && base > 0 && height > 0 ){
                 area = calculateArea(base, height, shape); 
                 circumference = calculateCircumference(base, height, 0, shape); 
                 printCalculations(base, height, 0,  area, circumference, shape); 
@@ -89,7 +89,7 @@ void shapeInput(int shape){
     }else if(shape == TRIANGEL){
         while(true){
             printf("Input the mesurements in cm of base, height and lenght:\n"); 
-            if((scanf("%.2f", &base)) && (scanf("%.2f", &height)) && (scanf("%.2f", &lenght))
+            if((scanf("%f", &base)) && (scanf("%f", &height)) && (scanf("%f", &lenght))
                 && base > 0 && height > 0 && lenght > 0){
                 area = calculateArea(base, height, TRIANGEL); 
                 circumference = calculateCircumference(base, height, lenght, TRIANGEL);
@@ -104,7 +104,7 @@ void shapeInput(int shape){
     }else{
         while(true){
             printf("\nInput the radius in cm:");
-            if(scanf("%.2f",&base) && base > 0){
+            if(scanf("%f",&base) && base > 0){
                 area = calculateArea(base, 0, CIRCLE); 
                 circumference = calculateCircumference(base, 0, 0, CIRCLE); 
                 printCalculations(base, 0 , 0, area, circumference, CIRCLE); 

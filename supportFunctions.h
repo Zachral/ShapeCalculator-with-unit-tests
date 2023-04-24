@@ -4,8 +4,7 @@
 
 bool playAgain();
 char upperCase(char *string); 
-bool playAgain();
-char upperCase(char *string); 
+void empty_stdin(void);
 
 typedef enum
 {
