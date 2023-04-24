@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdbool.h>
-#include "calculateFunctions.h"
+#include "calculator.h"
 #include "safeinput.h"
 #include "empty_stdin.h"
 

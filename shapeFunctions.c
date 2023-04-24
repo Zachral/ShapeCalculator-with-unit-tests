@@ -3,8 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "calculateFunctions.h"
-#include "safeinput.h"
-#include "empty_stdin.h"
+#include "supportFunctions.h"
 #define RECTANGEL 1
 #define PARALLELOGRAM 2
 #define TRIANGEL 3

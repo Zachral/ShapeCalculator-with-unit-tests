@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "calculator.h"
 #include "calculateFunctions.h"
-#include "safeinput.h"
-#include "empty_stdin.h"
+#include "supportFunctions.h"
 
 int main(){
     while(true){

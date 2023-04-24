@@ -6,8 +6,7 @@
 #include <stdlib.h>  
 #include <unistd.h>
 #include "structs.h"
-#include "safeinput.h"
-#include "empty_stdin.h"
+#include "supportFunctions.h"
 #define ROCK 1
 #define PAPER 2
 #define SCISSORS 3
