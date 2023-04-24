@@ -9,7 +9,7 @@
 int main(){
     while(true){
         int menuChoice; 
-        GetInputInt("\nMenu:\n1. Calculate the area of a shape\n2. Open calculator\n3. Play rock, paper, scissors\n4. Exit\nChoice: ", &menuChoice);
+        GetInputInt("\nMenu:\n1. Calculate the area and circumference of a shape\n2. Open calculator\n3. Play rock, paper, scissors\n4. Exit\nChoice: ", &menuChoice);
 
         switch (menuChoice){
         case 1:

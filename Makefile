@@ -34,8 +34,8 @@ clean:
 $(OUTPUTDIR):
 	@mkdir "$(OUTPUTDIR)"
 
-$(TEST): shapeFunctions.o RPSgame.o empty_stdin.o TestShapes.o TestRPSGame.o
+$(TEST): shapeFunctions.o RPSgame.o empty_stdin.o calculator.o safeinput.o TestShapes.o TestRPSGame.o TestCalculator.o
 	g++ -o $@ $^ $(CFLAGS) -I $(GTEST)  $(LIBGTEST)
 
 test: $(TEST)
-	./$(TEST)
+	./$(TEST) 

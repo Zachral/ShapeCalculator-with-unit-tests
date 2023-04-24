@@ -13,3 +13,4 @@ Makefile old
 TestShapes.o
 unitTests.exe
 TestRPSGame.o
+TestCalculator.o
