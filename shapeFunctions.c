@@ -2,9 +2,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-#include "calculateFunctions.h"
-#include "safeinput.h"
-#include "empty_stdin.h"
+#include "shapes.h"
+#include "supportFunctions.h"
 #define RECTANGEL 1
 #define PARALLELOGRAM 2
 #define TRIANGEL 3
@@ -14,7 +13,7 @@
 int shapeMenu(){
     char shapeInput[20];
     while(true){  
-        printf("\nOn which shape do you want to calculate the area?\n"
+        printf("\nOn which shape do you want to calculate the area and circumference?\n"
                     "* Rectangle\n"
                     "* Parallelogram\n"
                     "* Triangle\n"
@@ -33,10 +32,10 @@ int shapeMenu(){
             }else if (strcmp(shapeInput, "EXIT") == 0){
                 return 5;
             }else{
-                printf("invalid input."); 
+                printf("Invalid input.\n"); 
             }
         }else 
-            printf("invalid input.");
+            printf("Invalid input.\n");
     }    
 }
 
@@ -50,40 +49,36 @@ void printCalculations(const float base, const float height, const float lenght,
     if(shape == CIRCLE)
         printf("\nThe area of a circle with a radius of %.2fcm is %.2fcm\n", base, area);
     
-    printf("and the circumference  is %.2fcm\n\n", circumference);
+    printf("The circumference is %.2fcm\n\n", circumference);
     sleep(1); 
     return; 
 }
 
-void calculateShape(const int base, const int height, const int lenght, int shape){
-    float area, circumference;
-    if((shape == RECTANGEL || shape == PARALLELOGRAM)){
-        area = base * height; 
-        circumference = (2 * base) + (2 * height); 
-        printCalculations(base, height, 0,  area, circumference, shape); 
-        return; 
-    }
-    if(shape == TRIANGEL){
-        area = base * height /2; 
-        circumference = base + height + lenght; 
-        printCalculations(base, height, lenght, area, circumference, TRIANGEL); 
-        return;
-    }
-    if(shape == CIRCLE){
-        area = PI*(base * base); 
-        circumference = (2 * PI) * base; 
-        printCalculations(base, 0 , 0, area, circumference, CIRCLE); 
-        return; 
-    }
+float calculateCircumference(const int base, const int height, const int lenght, int shape){
+    float circumference;
+    if((shape == RECTANGEL || shape == PARALLELOGRAM)) return circumference = (2 * base) + (2 * height); 
+    if(shape == TRIANGEL) return circumference = base + height + lenght; 
+    if(shape == CIRCLE) return  circumference = (2 * PI) * base;   
+return 1; 
+}
+
+float calculateArea(const int base, const int height, int shape){
+    float area;
+    if((shape == RECTANGEL || shape == PARALLELOGRAM)) return area = base * height; 
+    if(shape == TRIANGEL) return area = base * height /2; 
+    if(shape == CIRCLE) return area = PI*(base * base); 
+return 1; 
 }
 
 void shapeInput(int shape){
-    float base, height, lenght;
+    float base, height, lenght, area, circumference; 
     if(shape == RECTANGEL || shape == PARALLELOGRAM){
         while(true){
             printf("Input the mesurements in cm of base and height:\n"); 
             if((scanf("%f", &base)) && (scanf("%f", &height)) && base > 0 && height > 0 ){
-                calculateShape(base, height, 0, shape); 
+                area = calculateArea(base, height, shape); 
+                circumference = calculateCircumference(base, height, 0, shape); 
+                printCalculations(base, height, 0,  area, circumference, shape); 
                 empty_stdin();
                 return;
             }else{
@@ -96,7 +91,9 @@ void shapeInput(int shape){
             printf("Input the mesurements in cm of base, height and lenght:\n"); 
             if((scanf("%f", &base)) && (scanf("%f", &height)) && (scanf("%f", &lenght))
                 && base > 0 && height > 0 && lenght > 0){
-                calculateShape(base, height, lenght, TRIANGEL); 
+                area = calculateArea(base, height, TRIANGEL); 
+                circumference = calculateCircumference(base, height, lenght, TRIANGEL);
+                printCalculations(base, height, lenght, area, circumference, TRIANGEL); 
                 empty_stdin();
                 return;
             }else{
@@ -108,7 +105,9 @@ void shapeInput(int shape){
         while(true){
             printf("\nInput the radius in cm:");
             if(scanf("%f",&base) && base > 0){
-                calculateShape(base, 0, 0, CIRCLE); 
+                area = calculateArea(base, 0, CIRCLE); 
+                circumference = calculateCircumference(base, 0, 0, CIRCLE); 
+                printCalculations(base, 0 , 0, area, circumference, CIRCLE); 
                 empty_stdin(); 
                 return; 
             }else{

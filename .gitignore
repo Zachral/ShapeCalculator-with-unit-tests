@@ -5,9 +5,12 @@ main.o
 safeinput.o
 calculator.o
 shapeFunctions.o
-RPSgame.c
 inlamningCI
 RPSgame.o
 inlamningCI-debug.exe
 Makefile old
 .vscode/settings.json
+TestShapes.o
+unitTests.exe
+TestRPSGame.o
+TestCalculator.o

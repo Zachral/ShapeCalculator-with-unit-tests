@@ -1,9 +1,13 @@
 PROG=InlamingCI.exe
+TEST=unitTests.exe
 SOURCES=Main.c calculator.c empty_stdin.c RPSgame.c safeinput.c shapeFunctions.c 
-DEPS=calculateFunctions.h empty_stdin.h safeinput.h 
+DEPS=calculator.h RPSgame.h shapes.h structs.h supportFunctions.h
 CC=gcc
-CFLAGS=-g -Wall -Werror
+CFLAGS=-Wall -Werror
 DEBUG?=1
+GTEST = gtest
+LIBGTEST =C:\msys64\mingw64\lib\libgtest_main.a C:\msys64\mingw64\lib\libgtest.a
+
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g
 	OUTPUTDIR=bin/debug
@@ -22,9 +26,16 @@ $(OUTPUTDIR)/%.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -o $@ -c $< 
 
 .PHONY: clean
+
 clean:
 	@rm /q "$(OUTPUTDIR)" 
 	@rm /q $(PROG)
 
 $(OUTPUTDIR):
 	@mkdir "$(OUTPUTDIR)"
+
+$(TEST): shapeFunctions.o RPSgame.o empty_stdin.o calculator.o safeinput.o TestShapes.o TestRPSGame.o TestCalculator.o
+	g++ -o $@ $^ $(CFLAGS) -I $(GTEST)  $(LIBGTEST)
+
+test: $(TEST)
+	./$(TEST) 

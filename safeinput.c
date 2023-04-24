@@ -3,7 +3,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "safeinput.h"
+#include "supportFunctions.h"
 
 
 bool parseLong(const char *str, long *val)
