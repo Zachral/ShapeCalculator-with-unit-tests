@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include "calculator.h"
 #include "shapes.h"
 #include "supportFunctions.h"
@@ -8,12 +7,12 @@
 
 int main(){
     while(true){
-        int menuChoice; 
+        int menuChoice = 0; 
         GetInputInt("\nMenu:\n1. Calculate the area and circumference of a shape\n2. Open calculator\n3. Play rock, paper, scissors\n4. Exit\nChoice: ", &menuChoice);
 
         switch (menuChoice){
         case 1:
-            chooseShape();  
+            chooseShape();
             break;
         case 2: 
             calculatorInput();
@@ -25,7 +24,7 @@ int main(){
             return false;
             break; 
         default:
-            printf("Invalid input");
+            printf("Invalid input\nPress enter to continue.");
             empty_stdin();
             break;
         }

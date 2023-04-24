@@ -38,6 +38,7 @@ int printToFile(Game_Result result){
     gameRecord.currentGame->result = result; 
     fwrite(&gameRecord.currentGame[gameRecord.numberOfGames -1], sizeof(CurrentGame), 1, file);       
     fclose(file); 
+    free(gameRecord.currentGame); 
     return 0;
 }
 
@@ -61,6 +62,7 @@ float calculateWinRatio(GameRecord *gameRecord){
             totalWins++; 
         counter++;
     }
+    free(gameRecord->currentGame); 
     return totalWinPercentage = (float)totalWins/counter * 100; 
     
 }
