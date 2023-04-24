@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-#include "shapes.h"
 #include "supportFunctions.h"
 #define RECTANGEL 1
 #define PARALLELOGRAM 2
@@ -39,7 +38,8 @@ int shapeMenu(){
     }    
 }
 
-void printCalculations(const float base, const float height, const float lenght, const float area, const float circumference, int shape){
+void printCalculations(const float base, const float height, const float lenght, 
+                       const float area, const float circumference, int shape){
     if(shape == RECTANGEL)
         printf("\nThe area of a rectangle with a base of %.2fcm and a height of %.2fcm is %.2fcm2\n", base, height, area);
     if (shape == PARALLELOGRAM)
