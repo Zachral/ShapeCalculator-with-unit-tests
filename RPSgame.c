@@ -35,8 +35,7 @@ int printToFile(Game_Result result){
 
     strcpy(gameRecord.currentGame[gameRecord.numberOfGames -1].date, currentDate);  
     gameRecord.currentGame->result = result; 
-    fwrite(&gameRecord.currentGame[gameRecord.numberOfGames -1], sizeof(CurrentGame), 1, file);  
-    printf("%d", gameRecord.numberOfGames);     
+    fwrite(&gameRecord.currentGame[gameRecord.numberOfGames -1], sizeof(CurrentGame), 1, file);       
     fclose(file); 
     return 0;
 }
@@ -57,11 +56,12 @@ float calculateWinRatio(GameRecord *gameRecord){
         else 
             gameRecord->currentGame = (CurrentGame *)realloc(gameRecord->currentGame, (counter + 1) * sizeof(CurrentGame));
         fread(&gameRecord->currentGame[counter], sizeof(gameRecord->currentGame[0]), 1, file); 
-       // if(&gameRecord->currentGame[counter].result == User_Win)
-        //    totalWins++; 
+        if(gameRecord->currentGame[counter].result == User_Win)
+            totalWins++; 
         counter++;
     }
-    return totalWinPercentage = (totalWins/counter) * 100; 
+    return totalWinPercentage = (float)totalWins/counter * 100; 
+    
 }
 
 char upperCase(char *string){
@@ -140,7 +140,7 @@ bool playAgain(){
 
 void RPSGame(){
     char userChoice[10];
-    int computerChoice; 
+    int computerChoice;
     printf("\nWelcome to the Rock, paper, scissors game!");
     while(true){
         printf("\nRock, paper or scissors?\n"); 
@@ -158,7 +158,7 @@ void RPSGame(){
             if(playAgain())
                 continue;
             else{
-                printf("You have won %.0f%% of the games", calculateWinRatio(&gameRecord)); 
+                printf("You have won %.2f%% of the games!\n", calculateWinRatio(&gameRecord)); 
                 return;
             } 
         }else{
