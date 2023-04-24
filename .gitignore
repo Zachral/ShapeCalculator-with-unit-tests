@@ -12,3 +12,4 @@ Makefile old
 .vscode/settings.json
 TestShapes.o
 unitTests.exe
+TestRPSGame.o

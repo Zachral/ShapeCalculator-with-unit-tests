@@ -3,7 +3,6 @@
 
 extern "C" {
 #include "shapes.h"
-#include "supportFunctions.h"
 }
 
 class ShapesTest : public testing::Test {

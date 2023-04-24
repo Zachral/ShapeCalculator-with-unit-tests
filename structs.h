@@ -1,3 +1,6 @@
+#ifndef __STRUCTS_H_
+#define __STRUCTS_H_
+
 typedef enum{
     User_Win,
     User_Loose, 
@@ -15,4 +18,4 @@ typedef struct{
     int numberOfGames; 
 }GameRecord; 
 
-GameRecord gameRecord;  
+#endif

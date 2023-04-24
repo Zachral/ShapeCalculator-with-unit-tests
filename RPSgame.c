@@ -11,6 +11,8 @@
 #define PAPER 2
 #define SCISSORS 3
 
+GameRecord gameRecord; 
+
 int printToFile(Game_Result result){
     char currentDate[26];
     time_t timer;
@@ -137,7 +139,7 @@ bool playAgain(){
     }
 }
 
-void RPSGame(){
+void RPSGame(){ 
     char userChoice[10];
     int computerChoice;
     printf("\nWelcome to the Rock, paper, scissors game!");
