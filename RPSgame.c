@@ -13,7 +13,7 @@
 
 GameRecord gameRecord; 
 
-int printToFile(Game_Result result){
+int printToFile(const Game_Result result){
     char currentDate[26];
     time_t timer;
     struct tm* date_info ={0}; 
@@ -86,7 +86,7 @@ int randomChoice(){
     return computerChoice; 
 }
 
-void printChoices(char *userChoice, int computerChoice, Game_Result result){
+void printChoices(const char *userChoice, const int computerChoice, const Game_Result result){
     if (computerChoice == ROCK)
         printf("\nYou chose %s\nThe computer chose ROCK\n", userChoice);
     if (computerChoice == PAPER)
@@ -109,7 +109,7 @@ void printChoices(char *userChoice, int computerChoice, Game_Result result){
     return; 
 }
 
-Game_Result decideWinner(char *userChoice, int computerChoice){
+Game_Result decideWinner(const char *userChoice, const int computerChoice){
     if((strcmp(userChoice, "ROCK") == 0 && computerChoice == SCISSORS) 
         || (strcmp(userChoice, "PAPER") == 0 && computerChoice == ROCK) 
         || (strcmp(userChoice, "SCISSORS") == 0 && computerChoice== PAPER))
@@ -144,7 +144,9 @@ bool playAgain(){
 void RPSGame(){ 
     char userChoice[10];
     int computerChoice;
-    printf("\nWelcome to the Rock, paper, scissors game!");
+    printf("\n**********************************************\n");
+    printf("  Welcome to the Rock, paper, scissors game!");
+    printf("\n\n**********************************************\n");
     while(true){
         printf("\nRock, paper or scissors?\n"); 
         fgets(userChoice, 10, stdin);   

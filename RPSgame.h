@@ -3,6 +3,6 @@
 #include "structs.h"
 
 void RPSGame(); 
-Game_Result decideWinner(char *userChoice, int computerChoice);
+Game_Result decideWinner(const char *userChoice, const int computerChoice);
 
 #endif

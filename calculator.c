@@ -8,34 +8,29 @@ float calculateAndPrint(float operand1, float operand2, char op){
     int num1, num2;
     switch (op){
     case '+':
-        result = operand1 + operand2; 
-        printf("%.2f + %.2f = %.2f\n", operand1, operand2, result ); 
+        printf("%.2f + %.2f = %.2f\n", operand1, operand2, result = operand1 + operand2); 
         sleep(1); 
         return result; 
         break;
-    case '-':
-        result = operand1 - operand2; 
-        printf("%.2f - %.2f = %.2f\n", operand1, operand2, result ); 
+    case '-': 
+        printf("%.2f - %.2f = %.2f\n", operand1, operand2, result = operand1 - operand2); 
         sleep(1); 
         return result; 
         break;
     case '*':
-        result = operand1 * operand2; 
-        printf("%.2f * %.2f = %.2f\n", operand1, operand2, result ); 
+        printf("%.2f * %.2f = %.2f\n", operand1, operand2, result = operand1 * operand2); 
         sleep(1); 
         return result; 
         break;
     case '/':
-        result = operand1 / operand2; 
-        printf("%.2f / %.2f = %.2f\n", operand1, operand2, result ); 
+        printf("%.2f / %.2f = %.2f\n", operand1, operand2, result = operand1 / operand2); 
         sleep(1); 
         return result; 
         break;
     case '%': 
         num1 = (int)operand1;
-        num2 = (int)operand2; 
-        result = num1 % num2; 
-        printf("%.2f %% %.2f = %.2f\n", operand1, operand2, result ); 
+        num2 = (int)operand2;
+        printf("%.2f %% %.2f = %.2f\n", operand1, operand2, result = num1 % num2); 
         sleep(1); 
         return result; 
         break;
