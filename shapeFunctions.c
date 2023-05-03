@@ -9,6 +9,7 @@
 #define CIRCLE 4
 #define PI 3.141593
 
+//Converts the text input of the shape choice to a number to be used in switch-statement in chooseShape().
 int shapeMenu(){
     char shapeInput[20];
     while(true){  
@@ -70,6 +71,7 @@ float calculateArea(const int base, const int height, int shape){
 return 1; 
 }
 
+//Takes the input from user, checks if they are numbers and passes them on to the calculate- and print functions. 
 void shapeInput(int shape){
     float base, height, lenght, area, circumference; 
     if(shape == RECTANGEL || shape == PARALLELOGRAM){
@@ -118,6 +120,7 @@ void shapeInput(int shape){
     }
 }
 
+//Takes the return value of shapeMenu and runs the shapeInput function with approprite shape.
 bool chooseShape(){
     while(true){
         switch (shapeMenu()){
