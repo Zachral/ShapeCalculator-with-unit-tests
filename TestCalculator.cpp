@@ -18,7 +18,7 @@ TEST_F(calculatorTest,WhenAdding5and10ShouldResultBe15){
     float result; 
 
     //ACT
-    result = calculateAndPrint(operand1, operand2, op); 
+    result = calculate(operand1, operand2, op); 
 
     //ASSERT
     ASSERT_EQ(result,  15.00);
@@ -31,7 +31,7 @@ TEST_F(calculatorTest,WhenSubtracting5from10ShouldResultBe5){
     float result; 
 
     //ACT
-    result = calculateAndPrint(operand1, operand2, op); 
+    result = calculate(operand1, operand2, op); 
 
     //ASSERT
     ASSERT_EQ(result,  5.00);
@@ -45,7 +45,7 @@ TEST_F(calculatorTest,WhenMultiplying5and10ShouldResultBe50){
     float result; 
 
     //ACT
-    result = calculateAndPrint(operand1, operand2, op); 
+    result = calculate(operand1, operand2, op); 
 
     //ASSERT
     ASSERT_EQ(result,  50.00);
@@ -59,7 +59,7 @@ TEST_F(calculatorTest,WhenDividing10with5ShouldResultBe2){
     float result; 
 
     //ACT
-    result = calculateAndPrint(operand1, operand2, op); 
+    result = calculate(operand1, operand2, op); 
 
     //ASSERT
     ASSERT_EQ(result,  2.00);
@@ -73,7 +73,7 @@ TEST_F(calculatorTest,WhenCalculationRemainderOf5in10ShouldResultBe0){
     float result; 
 
     //ACT
-    result = calculateAndPrint(operand1, operand2, op); 
+    result = calculate(operand1, operand2, op); 
 
     //ASSERT
     ASSERT_EQ(result,  0.00);
