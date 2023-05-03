@@ -3,36 +3,26 @@
 #include <stdbool.h>
 #include "supportFunctions.h"
 
-float calculateAndPrint(float operand1, float operand2, char op){
+float calculate(float operand1, float operand2, char op){
     float result; 
     int num1, num2;
     switch (op){
     case '+':
-        printf("%.2f + %.2f = %.2f\n", operand1, operand2, result = operand1 + operand2); 
-        sleep(1); 
-        return result; 
+        return result = operand1 + operand2;  
         break;
     case '-': 
-        printf("%.2f - %.2f = %.2f\n", operand1, operand2, result = operand1 - operand2); 
-        sleep(1); 
-        return result; 
+        return result = operand1 - operand2; 
         break;
     case '*':
-        printf("%.2f * %.2f = %.2f\n", operand1, operand2, result = operand1 * operand2); 
-        sleep(1); 
-        return result; 
+        return result = operand1 * operand2;
         break;
     case '/':
-        printf("%.2f / %.2f = %.2f\n", operand1, operand2, result = operand1 / operand2); 
-        sleep(1); 
-        return result; 
+        return result = operand1 / operand2; 
         break;
     case '%': 
         num1 = (int)operand1;
         num2 = (int)operand2;
-        printf("%.2f %% %.2f = %.2f\n", operand1, operand2, result = num1 % num2); 
-        sleep(1); 
-        return result; 
+        return result = num1 % num2;
         break;
     default:
         break;
@@ -40,9 +30,15 @@ float calculateAndPrint(float operand1, float operand2, char op){
 return 0;
 }
 
+void printResult(const float operand1, const float operand2, const char op, const float result){
+    printf("%.2f %c %.2f = %.2f", operand1, op, operand2, result);
+    return; 
+}
+
+
 int calculatorInput(){
     char op; 
-    float operand1, operand2; 
+    float operand1, operand2, result; 
     while(true){
         printf("\nOperators: +, -, *, /, %%");
         GetInputChar("\nChoose which operator you want to use: ", &op); 
@@ -53,7 +49,8 @@ int calculatorInput(){
             while(true){
                 printf("\nInput the two operands: \n");
                 if((scanf("%f", &operand1)) && (scanf("%f", &operand2))){
-                    calculateAndPrint(operand1, operand2, op); 
+                    result = calculate(operand1, operand2, op); 
+                    printResult(operand1, operand2, op, result);
                     empty_stdin(); 
                     if(playAgain())
                         break; 
