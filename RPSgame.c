@@ -13,6 +13,7 @@
 
 GameRecord gameRecord; 
 
+//Prints the date and outcome of the current game to binary file. 
 int printToFile(const Game_Result result){
     char currentDate[26];
     time_t timer;
@@ -42,6 +43,7 @@ int printToFile(const Game_Result result){
     return 0;
 }
 
+//Reads all game outcomes from binary files and calulate the win percentage of all games played
 float calculateWinRatio(GameRecord *gameRecord){
     int counter = 0;
     int totalWins = 0;
@@ -67,6 +69,7 @@ float calculateWinRatio(GameRecord *gameRecord){
     
 }
 
+//converts strings to uppercase and NULL-terminates them. 
 char upperCase(char *string){
     int i; 
     for(i = 0; string[i] != '\0'; i++){

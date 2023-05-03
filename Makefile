@@ -1,7 +1,7 @@
 PROG=InlamingCI.exe
 TEST=unitTests.exe
 SOURCES=Main.c calculator.c empty_stdin.c RPSgame.c safeinput.c shapeFunctions.c 
-DEPS=calculator.h RPSgame.h shapes.h structs.h supportFunctions.h
+DEPS=supportFunctions.h
 CC=gcc
 CFLAGS=-Wall -Werror
 DEBUG?=1
